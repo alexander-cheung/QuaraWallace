@@ -16,14 +16,6 @@ public class Shoot extends CommandBase {
 
     public void execute() {
         RobotContainer.shooterGroup.set(100);
-        try {
-            TimeUnit.SECONDS.sleep(1);
-        } catch (InterruptedException e) {
-            RobotContainer.shooterGroup.set(0);
-            e.printStackTrace();
-        }
-        RobotContainer.shooterGroup.set(0);
-
     }
 
     public void end()

@@ -63,7 +63,7 @@ public class RobotContainer {
    */
   private void configureButtonBindings() 
   {
-    xButtonShooter.whenPressed(shoot, false);
+    xButtonShooter.toggleWhenPressed(shoot, false);
   }
 
   /**
