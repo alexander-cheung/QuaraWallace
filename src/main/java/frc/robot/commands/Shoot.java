@@ -6,18 +6,39 @@ import frc.robot.subsystems.Shooter;
 import java.util.concurrent.TimeUnit;
 
 public class Shoot extends CommandBase {
-    private double speed = 0;
+    private boolean on = false;
     public Shooter shooter;
-
+    
     public Shoot(Shooter mShooter) {
         shooter = mShooter;
         addRequirements(mShooter);
     }
-
+    @Override
     public void execute() {
-        RobotContainer.shooterGroup.set(100);
+        if(on)
+        {
+            on = false;
+        }
+
+        else
+        {
+            on = true;
+        }
     }
 
+    public void periodicCommand()
+    {
+        if(on)
+        {
+            RobotContainer.shooterGroup.set(100);
+        }
+
+        if(!on)
+        {
+            RobotContainer.shooterGroup.set(0);
+        }
+    }
+    
     public void end()
     {
         RobotContainer.shooterGroup.set(0);

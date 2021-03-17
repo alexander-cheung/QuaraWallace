@@ -8,15 +8,15 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.PWM;
+import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
-import frc.robot.commands.Move;
-import frc.robot.commands.Cancel;
-import frc.robot.commands.Shoot;
-import frc.robot.subsystems.ExampleSubsystem;
-import frc.robot.subsystems.Drivetrain;
-import frc.robot.subsystems.Shooter;
+import frc.robot.commands.*;
+import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+
+import javax.swing.event.AncestorEvent;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
@@ -33,19 +33,27 @@ public class RobotContainer {
   public static DifferentialDrive myRobot;
   public static Drivetrain drivetrain;
   public static Shooter shooter;
+  public static BallLoader ballLoader;
+  public static AngleController angleController;
   public static Move move;
   public static Cancel cancel;
   public static Shoot shoot;
+  public static Load load;
+  public static Aim aim;
   public static WPI_VictorSPX v1;
   public static WPI_VictorSPX v2;
   public static WPI_VictorSPX v3;
   public static WPI_VictorSPX v4;
   public static WPI_VictorSPX v5;
   public static WPI_VictorSPX v6;
+  public static PWM shooterServo;
+  public static Servo controlActuator;
   public static SpeedControllerGroup rightGroup;
   public static SpeedControllerGroup leftGroup;
   public static SpeedControllerGroup shooterGroup;
   public static JoystickButton xButtonShooter;
+  public static JoystickButton xButtonLoader;
+
 
  
 
@@ -63,7 +71,8 @@ public class RobotContainer {
    */
   private void configureButtonBindings() 
   {
-    xButtonShooter.toggleWhenPressed(shoot, false);
+    xButtonShooter.whenPressed(shoot, false);
+    xButtonLoader.whenPressed(load, false);
   }
 
   /**

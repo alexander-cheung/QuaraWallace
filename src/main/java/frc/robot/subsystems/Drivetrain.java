@@ -7,7 +7,7 @@ public class Drivetrain extends SubsystemBase {
   public Drivetrain() {
   }
  
-  public void intialize(){
+  public void initialize(){
     RobotContainer.myRobot.tankDrive(0, 0);
     // RobotContainer.joystick.toggleWhenActive(new Move(), true);
   }

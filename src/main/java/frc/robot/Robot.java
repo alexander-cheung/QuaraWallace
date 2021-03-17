@@ -11,11 +11,17 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.PWM;
+import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import frc.robot.subsystems.Drivetrain;
+import edu.wpi.first.wpilibj.simulation.JoystickSim;
+import frc.robot.subsystems.*;
 import frc.robot.commands.Move;
+import frc.robot.commands.Shoot;
+import frc.robot.commands.Load;
+import frc.robot.commands.Aim;
 import frc.robot.commands.Cancel;
 
 /**
@@ -39,6 +45,9 @@ public class Robot extends TimedRobot {
     // autonomous chooser on the dashboard.
     RobotContainer.xController = new XboxController(1);
     RobotContainer.drivetrain = new Drivetrain();
+    RobotContainer.shooter = new Shooter();
+    RobotContainer.ballLoader = new BallLoader();
+    RobotContainer.angleController = new AngleController();
     RobotContainer.joystick = new Joystick(Constants.joystick);
     RobotContainer.v1 = new WPI_VictorSPX(Constants.RightLeader);
     RobotContainer.v2 = new WPI_VictorSPX(Constants.LeftLeader);
@@ -46,14 +55,23 @@ public class Robot extends TimedRobot {
     RobotContainer.v4 = new WPI_VictorSPX(Constants.LeftFollower);
     RobotContainer.v5 = new WPI_VictorSPX(5);
     RobotContainer.v6 = new WPI_VictorSPX(6);
+    RobotContainer.shooterServo = new PWM(0);
+    RobotContainer.controlActuator = new Servo(1);
     RobotContainer.rightGroup = new SpeedControllerGroup(RobotContainer.v1, RobotContainer.v3);
     RobotContainer.leftGroup = new SpeedControllerGroup(RobotContainer.v2, RobotContainer.v4);
     RobotContainer.shooterGroup = new SpeedControllerGroup(RobotContainer.v5, RobotContainer.v6);
     RobotContainer.myRobot = new DifferentialDrive(RobotContainer.leftGroup, RobotContainer.rightGroup);
-    RobotContainer.drivetrain.intialize();
+    RobotContainer.drivetrain.initialize();
+    RobotContainer.shooter.initialize();
+    RobotContainer.ballLoader.initialize();
+    RobotContainer.angleController.initialize();
     RobotContainer.move = new Move(RobotContainer.drivetrain);
+    RobotContainer.shoot = new Shoot(RobotContainer.shooter);
+    RobotContainer.load = new Load(RobotContainer.ballLoader);
+    RobotContainer.aim = new Aim(RobotContainer.angleController);
     RobotContainer.xButtonShooter = new JoystickButton(RobotContainer.xController, Constants.shootButton);
-    m_robotContainer = new RobotContainer();
+    RobotContainer.xButtonLoader = new JoystickButton(RobotContainer.xController, Constants.loadButton);
+      m_robotContainer = new RobotContainer();
   }
 
   /**

@@ -19,5 +19,6 @@ public final class Constants
     public static final int LeftLeader = 1;
     public static final int LeftFollower = 4;
     public static final int joystick = 0;
-    public static final int shootButton = 6;
+    public static final int shootButton = 5;
+    public static final int loadButton = 6;
 }

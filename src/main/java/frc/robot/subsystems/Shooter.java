@@ -12,4 +12,9 @@ public class Shooter extends SubsystemBase{
     {
         RobotContainer.shooterGroup.set(0);
     }
+    @Override
+    public void periodic()
+    {
+        
+    }
 }
