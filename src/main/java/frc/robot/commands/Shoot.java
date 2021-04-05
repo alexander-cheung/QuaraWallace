@@ -5,6 +5,8 @@ import frc.robot.RobotContainer;
 import frc.robot.subsystems.Shooter;
 import java.util.concurrent.TimeUnit;
 
+import com.ctre.phoenix.motorcontrol.InvertType;
+
 public class Shoot extends CommandBase {
     private boolean on = false;
     public Shooter shooter;
@@ -15,22 +17,30 @@ public class Shoot extends CommandBase {
     }
     @Override
     public void execute() {
-        if(on)
+        if(RobotContainer.joystick.getRawButtonPressed(6))
         {
-            on = false;
-        }
+            if(on)
+            {
+                on = false;
+            }
 
-        else
-        {
-            on = true;
+            else
+            {
+                on = true;
+            }
+
         }
+        periodicCommand();
     }
 
     public void periodicCommand()
     {
         if(on)
         {
-            RobotContainer.shooterGroup.set(100);
+            RobotContainer.v5.set(100);
+            RobotContainer.v6.set(100);
+            
+            
         }
 
         if(!on)

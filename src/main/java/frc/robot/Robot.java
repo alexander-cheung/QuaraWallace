@@ -54,9 +54,9 @@ public class Robot extends TimedRobot {
     RobotContainer.v3 = new WPI_VictorSPX(Constants.RightFollower);
     RobotContainer.v4 = new WPI_VictorSPX(Constants.LeftFollower);
     RobotContainer.v5 = new WPI_VictorSPX(5);
-    RobotContainer.v6 = new WPI_VictorSPX(6);
-    RobotContainer.shooterServo = new PWM(0);
-    RobotContainer.controlActuator = new Servo(1);
+    RobotContainer.v6 = new WPI_VictorSPX(2);
+    RobotContainer.shooterServo = new PWM(3);
+    RobotContainer.controlActuator = new Servo(0);
     RobotContainer.rightGroup = new SpeedControllerGroup(RobotContainer.v1, RobotContainer.v3);
     RobotContainer.leftGroup = new SpeedControllerGroup(RobotContainer.v2, RobotContainer.v4);
     RobotContainer.shooterGroup = new SpeedControllerGroup(RobotContainer.v5, RobotContainer.v6);

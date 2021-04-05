@@ -20,14 +20,16 @@ public class Load extends CommandBase {
 
     @Override
     public void execute() {
-        RobotContainer.shooterServo.setRaw(127);
+        if(RobotContainer.joystick.getRawButtonPressed(7))
+        {
+            RobotContainer.shooterServo.setRaw(127);
         try {
             TimeUnit.SECONDS.sleep(1 / 3);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         RobotContainer.shooterServo.setRaw(0);
-
+        }
     }
 
     public void end()

@@ -13,5 +13,9 @@ public class BallLoader extends SubsystemBase {
     RobotContainer.shooterServo.setRaw(0);
     // RobotContainer.joystick.toggleWhenActive(new Move(), true);
     } 
-
+    @Override
+    public void periodic()
+    {
+        RobotContainer.load.execute();
+    }
 }

@@ -21,6 +21,7 @@ public class Aim extends CommandBase{
     @Override
   public void execute() {
       double factor = RobotContainer.joystick.getY();
+
       RobotContainer.controlActuator.set(RobotContainer.controlActuator.get() + 0.005 * factor);
   }
 }
