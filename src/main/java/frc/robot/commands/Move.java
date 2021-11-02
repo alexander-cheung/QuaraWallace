@@ -2,7 +2,10 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Constants;
+import frc.robot.Robot;
 import frc.robot.RobotContainer;
+import frc.robot.Constants.DriveMode;
 import frc.robot.subsystems.Drivetrain;
 
 public class Move extends CommandBase {
@@ -33,7 +36,18 @@ public class Move extends CommandBase {
     {
       spdMult = 1.0;
     }
-    RobotContainer.myRobot.tankDrive(-spdMult*RobotContainer.xController.getY(Hand.kLeft),-spdMult*RobotContainer.xController.getY(Hand.kRight));
+
+    // Calls a function to move the robot depending on the driveMode constant 
+    if (Constants.driveMode == DriveMode.arcadeDrive) {
+      double speed = RobotContainer.xController.getY(Constants.movementJoystick);
+      double rotation = RobotContainer.xController.getX(Constants.movementJoystick);
+      RobotContainer.myRobot.arcadeDrive(-spdMult * speed, rotation);
+    }
+    else if (Constants.driveMode == DriveMode.tankDrive) {
+      double left = RobotContainer.xController.getY(Hand.kLeft);
+      double right = RobotContainer.xController.getY(Hand.kRight);
+      RobotContainer.myRobot.tankDrive(-spdMult * left,-spdMult * right);
+    }
   }
 
   // Called once the command ends or is interrupted.
