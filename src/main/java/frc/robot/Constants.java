@@ -30,5 +30,6 @@ public final class Constants
         arcadeDrive;
     }
     public static final DriveMode defaultDriveMode = DriveMode.arcadeDrive;
+    public static final double rotMult = 0.25;
     public static final Hand movementJoystick = Hand.kLeft;
 }

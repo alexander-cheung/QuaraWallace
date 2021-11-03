@@ -31,23 +31,28 @@ public class Move extends CommandBase {
     if(RobotContainer.joystick.getRawButtonPressed(8))
     {
       spdMult = 0.5;
+      System.out.println(spdMult);
     }
     else if(RobotContainer.joystick.getRawButtonPressed(10))
     {
       spdMult = 0.7;
+      System.out.println(spdMult);
     }
     else if(RobotContainer.joystick.getRawButtonPressed(12))
     {
       spdMult = 1.0;
+      System.out.println(spdMult);
     }
     
     // Switch driveMode
-    if (RobotContainer.xController.getAButton()) {
+    if (RobotContainer.xController.getAButtonPressed()) {
       if (driveMode == DriveMode.arcadeDrive) {
         driveMode = DriveMode.tankDrive;
+        System.out.println("Switched to tankDrive");
       }
       else if (driveMode == DriveMode.tankDrive) {
         driveMode = DriveMode.arcadeDrive;
+        System.out.println("Switched to arcadeDrive");
       }
     }
 
@@ -55,8 +60,8 @@ public class Move extends CommandBase {
     if (driveMode == DriveMode.arcadeDrive) {
       double speed = RobotContainer.xController.getY(Constants.movementJoystick);
       double rotation = RobotContainer.xController.getX(Constants.movementJoystick);
-      RobotContainer.myRobot.arcadeDrive(-spdMult * speed, rotation);
-      System.out.println("Speed: " + speed + " | Rotation: " + rotation + " | Speed Mult: " + spdMult);
+      RobotContainer.myRobot.arcadeDrive(-spdMult * speed, rotation * Constants.rotMult);
+      //System.out.println("Speed: " + speed + " | Rotation: " + rotation + " | Speed Mult: " + spdMult);
     }
     else if (driveMode == DriveMode.tankDrive) {
       double left = RobotContainer.xController.getY(Hand.kLeft);
