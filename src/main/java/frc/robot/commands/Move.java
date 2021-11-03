@@ -60,13 +60,13 @@ public class Move extends CommandBase {
     if (driveMode == DriveMode.arcadeDrive) {
       double speed = RobotContainer.xController.getY(Constants.movementJoystick);
       double rotation = RobotContainer.xController.getX(Constants.movementJoystick);
-      RobotContainer.myRobot.arcadeDrive(-spdMult * speed, rotation * Constants.rotMult);
+      RobotContainer.myRobot.arcadeDrive(spdMult * speed, rotation * Constants.rotMult);
       //System.out.println("Speed: " + speed + " | Rotation: " + rotation + " | Speed Mult: " + spdMult);
     }
     else if (driveMode == DriveMode.tankDrive) {
       double left = RobotContainer.xController.getY(Hand.kLeft);
       double right = RobotContainer.xController.getY(Hand.kRight);
-      RobotContainer.myRobot.tankDrive(-spdMult * left,-spdMult * right);
+      RobotContainer.myRobot.tankDrive(spdMult * left,spdMult * right);
     }
   }
 
