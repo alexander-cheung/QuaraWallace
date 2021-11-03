@@ -29,6 +29,6 @@ public final class Constants
         tankDrive,
         arcadeDrive;
     }
-    public static final DriveMode driveMode = DriveMode.arcadeDrive;
+    public static final DriveMode defaultDriveMode = DriveMode.arcadeDrive;
     public static final Hand movementJoystick = Hand.kLeft;
 }
