@@ -24,6 +24,7 @@ public final class Constants
     public static final int shootButton = 5;
     public static final int loadButton = 6;
 
+    // Constants for movement mode 
     public enum DriveMode {
         tankDrive,
         arcadeDrive;

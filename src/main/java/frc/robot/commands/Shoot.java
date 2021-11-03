@@ -15,40 +15,28 @@ public class Shoot extends CommandBase {
         shooter = mShooter;
         addRequirements(mShooter);
     }
+
     @Override
     public void execute() {
         if(RobotContainer.joystick.getRawButtonPressed(6))
         {
-            if(on)
-            {
-                on = false;
-            }
-
-            else
-            {
-                on = true;
-            }
-
+            on = !on;
         }
         periodicCommand();
     }
 
     public void periodicCommand()
     {
-        if(on)
-        {
+        if(on) {
             RobotContainer.v5.set(100);
             RobotContainer.v6.set(100);
-            
-            
         }
-
-        if(!on)
-        {
+        else {
             RobotContainer.shooterGroup.set(0);
         }
     }
     
+    // This is never called 
     public void end()
     {
         RobotContainer.shooterGroup.set(0);

@@ -5,14 +5,13 @@ import frc.robot.RobotContainer;
 
 
 public class BallLoader extends SubsystemBase {
-    public BallLoader()
-    {
+    public BallLoader() {}
 
-    }
     public void initialize(){
-    RobotContainer.shooterServo.setRaw(0);
-    // RobotContainer.joystick.toggleWhenActive(new Move(), true);
+        RobotContainer.shooterServo.setRaw(0);
+        // RobotContainer.joystick.toggleWhenActive(new Move(), true);
     } 
+
     @Override
     public void periodic()
     {
