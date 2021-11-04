@@ -10,8 +10,9 @@ import frc.robot.Constants.DriveMode;
 import frc.robot.subsystems.Drivetrain;
 
 public class Move extends CommandBase {
-  private double spdMult = 0.7;
-  private DriveMode driveMode = Constants.defaultDriveMode;
+  private double spdMult = Constants.defSpdMult;
+  private double rotMult = Constants.defRotMult;
+  private DriveMode driveMode = Constants.defDriveMode;
   public Drivetrain drivetrain;
 
   public Move(Drivetrain mDrivetrain) {
@@ -43,6 +44,23 @@ public class Move extends CommandBase {
       spdMult = 1.0;
       System.out.println(spdMult);
     }
+
+    // Switch rotation speed 
+    /*if(RobotContainer.joystick.getRawButtonPressed(?))
+    {
+      rotMult = -0.5;
+      System.out.println(rotMult);
+    }
+    else if(RobotContainer.joystick.getRawButtonPressed(?))
+    {
+      rotMult = -0.75;
+      System.out.println(rotMult);
+    }
+    else if(RobotContainer.joystick.getRawButtonPressed(?))
+    {
+      rotMult = -1;
+      System.out.println(rotMult);
+    }*/
     
     // Switch driveMode
     if (RobotContainer.xController.getAButtonPressed()) {
@@ -60,7 +78,7 @@ public class Move extends CommandBase {
     if (driveMode == DriveMode.arcadeDrive) {
       double speed = RobotContainer.xController.getY(Constants.movementJoystick);
       double rotation = RobotContainer.xController.getX(Constants.movementJoystick);
-      RobotContainer.myRobot.arcadeDrive(spdMult * speed, rotation * Constants.rotMult);
+      RobotContainer.myRobot.arcadeDrive(spdMult * speed, rotation * rotMult);
       //System.out.println("Speed: " + speed + " | Rotation: " + rotation + " | Speed Mult: " + spdMult);
     }
     else if (driveMode == DriveMode.tankDrive) {

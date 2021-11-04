@@ -24,12 +24,13 @@ public final class Constants
     public static final int shootButton = 5;
     public static final int loadButton = 6;
 
-    // Constants for movement mode 
+    // Constants for movement  
     public enum DriveMode {
         tankDrive,
         arcadeDrive;
     }
-    public static final DriveMode defaultDriveMode = DriveMode.arcadeDrive;
-    public static final double rotMult = -0.75;
+    public static final DriveMode defDriveMode = DriveMode.arcadeDrive;
     public static final Hand movementJoystick = Hand.kLeft;
+    public static final double defSpdMult = -0.75;
+    public static final double defRotMult = -0.75;
 }
