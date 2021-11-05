@@ -23,6 +23,7 @@ import frc.robot.commands.Shoot;
 import frc.robot.commands.Load;
 import frc.robot.commands.Aim;
 import frc.robot.commands.Cancel;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -89,6 +90,7 @@ public class Robot extends TimedRobot {
     // commands, running already-scheduled commands, removing finished or interrupted commands,
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
+    System.out.println("a");
     CommandScheduler.getInstance().run();
   }
 

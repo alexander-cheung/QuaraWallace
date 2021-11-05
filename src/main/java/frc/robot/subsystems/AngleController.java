@@ -5,17 +5,15 @@ import edu.wpi.first.wpilibj.Servo;
 import frc.robot.RobotContainer;
 
 public class AngleController extends SubsystemBase {
-    public AngleController()
-    {}
+    public AngleController() {}
 
-    public void initialize()
-    {
+    public void initialize() {
         RobotContainer.controlActuator.set(0);
     }
 
-    @Override
-  public void periodic() {
-    RobotContainer.aim.execute();
     // This method will be called once per scheduler run
-  }
+    @Override
+    public void periodic() {
+      RobotContainer.aim.execute();
+    }
 }

@@ -10,18 +10,20 @@ import frc.robot.subsystems.AngleController;
 
 public class Aim extends CommandBase{
     public AngleController mAngleController;
+    
     public Aim(AngleController aController)
     {
         mAngleController = aController;
         addRequirements(aController);
     }
-    @Override
-    public void initialize() {
-    }
-    @Override
-  public void execute() {
-      double factor = RobotContainer.joystick.getY();
 
+    // Does this need to be here? 
+    @Override
+    public void initialize() {}
+
+    @Override
+    public void execute() {
+      double factor = RobotContainer.joystick.getY();
       RobotContainer.controlActuator.set(RobotContainer.controlActuator.get() + 0.005 * factor);
-  }
+    }
 }
