@@ -59,6 +59,8 @@ public class Robot extends TimedRobot {
     RobotContainer.controlActuator = new Servo(0);
     RobotContainer.rightGroup = new SpeedControllerGroup(RobotContainer.v1, RobotContainer.v3);
     RobotContainer.leftGroup = new SpeedControllerGroup(RobotContainer.v2, RobotContainer.v4);
+    RobotContainer.rightGroup.setInverted(true);
+    RobotContainer.leftGroup.setInverted(true);
     RobotContainer.shooterGroup = new SpeedControllerGroup(RobotContainer.v5, RobotContainer.v6);
     RobotContainer.myRobot = new DifferentialDrive(RobotContainer.leftGroup, RobotContainer.rightGroup);
     RobotContainer.drivetrain.initialize();
