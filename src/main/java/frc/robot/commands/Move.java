@@ -46,21 +46,21 @@ public class Move extends CommandBase {
     }
 
     // Switch rotation speed 
-    /*if(RobotContainer.joystick.getRawButtonPressed(?))
+    if(RobotContainer.joystick.getRawButtonPressed(7))
     {
       rotMult = -0.5;
       System.out.println(rotMult);
     }
-    else if(RobotContainer.joystick.getRawButtonPressed(?))
+    else if(RobotContainer.joystick.getRawButtonPressed(9))
     {
       rotMult = -0.75;
       System.out.println(rotMult);
     }
-    else if(RobotContainer.joystick.getRawButtonPressed(?))
+    else if(RobotContainer.joystick.getRawButtonPressed(11))
     {
       rotMult = -1;
       System.out.println(rotMult);
-    }*/
+    }
     
     // Switch driveMode
     if (RobotContainer.xController.getAButtonPressed()) {

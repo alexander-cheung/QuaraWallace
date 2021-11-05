@@ -31,6 +31,6 @@ public final class Constants
     }
     public static final DriveMode defDriveMode = DriveMode.arcadeDrive;
     public static final Hand movementJoystick = Hand.kLeft;
-    public static final double defSpdMult = -0.75;
+    public static final double defSpdMult = 0.75;
     public static final double defRotMult = -0.75;
 }
