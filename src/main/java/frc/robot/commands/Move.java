@@ -10,10 +10,10 @@ import frc.robot.Constants.DriveMode;
 import frc.robot.subsystems.Drivetrain;
 
 public class Move extends CommandBase {
-  private double spdMult = Constants.defSpdMult;
-  private double rotMult = Constants.defRotMult;
-  private DriveMode driveMode = Constants.defDriveMode;
-  public Drivetrain drivetrain;
+  public double spdMult = Constants.defSpdMult;
+  public double rotMult = Constants.defRotMult;
+  public DriveMode driveMode = Constants.defDriveMode;
+  private final Drivetrain drivetrain;
 
   public Move(Drivetrain mDrivetrain) {
     drivetrain = mDrivetrain;
@@ -28,38 +28,21 @@ public class Move extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+
     // Switch speed 
-    if(RobotContainer.joystick.getRawButtonPressed(8))
-    {
-      spdMult = 0.5;
-      System.out.println(spdMult);
-    }
-    else if(RobotContainer.joystick.getRawButtonPressed(10))
-    {
-      spdMult = 0.7;
-      System.out.println(spdMult);
-    }
-    else if(RobotContainer.joystick.getRawButtonPressed(12))
-    {
-      spdMult = 1.0;
-      System.out.println(spdMult);
+    for(int i = 0; i < Constants.movButtons.length; i++) {
+      if(RobotContainer.joystick.getRawButtonPressed(Constants.movButtons[i])) {
+        spdMult = Constants.movSpeeds[i];
+        System.out.println(spdMult);
+      }
     }
 
     // Switch rotation speed 
-    if(RobotContainer.joystick.getRawButtonPressed(7))
-    {
-      rotMult = -0.5;
-      System.out.println(rotMult);
-    }
-    else if(RobotContainer.joystick.getRawButtonPressed(9))
-    {
-      rotMult = -0.75;
-      System.out.println(rotMult);
-    }
-    else if(RobotContainer.joystick.getRawButtonPressed(11))
-    {
-      rotMult = -1;
-      System.out.println(rotMult);
+    for(int i = 0; i < Constants.rotButtons.length; i++) {
+      if(RobotContainer.joystick.getRawButtonPressed(Constants.rotButtons[i])) {
+        rotMult = Constants.rotSpeeds[i];
+        System.out.println(rotMult);
+      }
     }
     
     // Switch driveMode

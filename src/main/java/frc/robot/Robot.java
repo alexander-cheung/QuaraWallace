@@ -72,7 +72,7 @@ public class Robot extends TimedRobot {
     RobotContainer.shoot = new Shoot(RobotContainer.shooter);
     RobotContainer.load = new Load(RobotContainer.ballLoader);
     RobotContainer.aim = new Aim(RobotContainer.angleController);
-    RobotContainer.indicate = new Indicate();
+    RobotContainer.indicate = new Indicate(RobotContainer.indicators, RobotContainer.move);
     RobotContainer.xButtonShooter = new JoystickButton(RobotContainer.xController, Constants.shootButton);
     RobotContainer.xButtonLoader = new JoystickButton(RobotContainer.xController, Constants.loadButton);
       m_robotContainer = new RobotContainer();
@@ -91,7 +91,6 @@ public class Robot extends TimedRobot {
     // commands, running already-scheduled commands, removing finished or interrupted commands,
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
-    System.out.println("a");
     CommandScheduler.getInstance().run();
   }
 
