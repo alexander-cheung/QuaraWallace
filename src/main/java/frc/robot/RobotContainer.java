@@ -35,11 +35,13 @@ public class RobotContainer {
   public static Shooter shooter;
   public static BallLoader ballLoader;
   public static AngleController angleController;
+  public static Indicators indicators;
   public static Move move;
   public static Cancel cancel;
   public static Shoot shoot;
   public static Load load;
   public static Aim aim;
+  public static Indicate indicate;
   public static WPI_VictorSPX v1;
   public static WPI_VictorSPX v2;
   public static WPI_VictorSPX v3;
@@ -53,9 +55,6 @@ public class RobotContainer {
   public static SpeedControllerGroup shooterGroup;
   public static JoystickButton xButtonShooter;
   public static JoystickButton xButtonLoader;
-
-
- 
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {

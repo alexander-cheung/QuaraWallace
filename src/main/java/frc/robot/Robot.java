@@ -23,6 +23,7 @@ import frc.robot.commands.Shoot;
 import frc.robot.commands.Load;
 import frc.robot.commands.Aim;
 import frc.robot.commands.Cancel;
+import frc.robot.commands.Indicate;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 
 /**
@@ -49,6 +50,7 @@ public class Robot extends TimedRobot {
     RobotContainer.shooter = new Shooter();
     RobotContainer.ballLoader = new BallLoader();
     RobotContainer.angleController = new AngleController();
+    RobotContainer.indicators = new Indicators();
     RobotContainer.joystick = new Joystick(Constants.joystick);
     RobotContainer.v1 = new WPI_VictorSPX(Constants.RightLeader);
     RobotContainer.v2 = new WPI_VictorSPX(Constants.LeftLeader);
@@ -70,6 +72,7 @@ public class Robot extends TimedRobot {
     RobotContainer.shoot = new Shoot(RobotContainer.shooter);
     RobotContainer.load = new Load(RobotContainer.ballLoader);
     RobotContainer.aim = new Aim(RobotContainer.angleController);
+    RobotContainer.indicate = new Indicate();
     RobotContainer.xButtonShooter = new JoystickButton(RobotContainer.xController, Constants.shootButton);
     RobotContainer.xButtonLoader = new JoystickButton(RobotContainer.xController, Constants.loadButton);
       m_robotContainer = new RobotContainer();
