@@ -24,7 +24,9 @@ public final class Constants
     public static final int LeftFollower = 4;
     public static final int joystick = 0;
     // Add pin number(s) for speed lights 
+    public static final int[] speedIndicatorPins = {1, 2, 3};
     // Add pin number(s) for rotation lights 
+    public static final int[] rotationIndicatorPins = {4, 5, 6};
 
     // Buttons from the joystick 
     public static final int shootButton = 5;

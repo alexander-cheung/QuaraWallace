@@ -35,13 +35,15 @@ public class RobotContainer {
   public static Shooter shooter;
   public static BallLoader ballLoader;
   public static AngleController angleController;
-  public static Indicators indicators;
+  public static SpeedIndicator speedIndicator;
+  public static RotationIndicator rotationIndicator;
   public static Move move;
   public static Cancel cancel;
   public static Shoot shoot;
   public static Load load;
   public static Aim aim;
-  public static Indicate indicate;
+  public static IndicateSpeed indicateSpeed;
+  public static IndicateRotation indicateRotation;
   public static WPI_VictorSPX v1;
   public static WPI_VictorSPX v2;
   public static WPI_VictorSPX v3;
