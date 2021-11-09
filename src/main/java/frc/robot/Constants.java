@@ -48,9 +48,9 @@ public final class Constants
     // The buttons used to change movement speed from the joystick
     public static final int[] movButtons = {8, 10, 12};
     // The multipliers that the buttons will apply to movement speed
-    public static final double[] movSpeeds = {0.5, 0.7, 1.0};
+    public static final double[] movSpeeds = {0.5, 0.7, 0.9};
     // The buttons used to change rotation speed from the joystick 
     public static final int[] rotButtons = {7, 9, 11};
     // the multipliers that the buttons will apply to rotation speed
-    public static final double[] rotSpeeds = {-0.5, -0.75, -1};
+    public static final double[] rotSpeeds = {-0.5, -0.75, -0.9};
 }
