@@ -13,6 +13,10 @@ public class IndicateSpeed extends CommandBase{
     public IndicateSpeed(SpeedIndicator mIndicator, Move mMove) {
         indicator = mIndicator;
         move = mMove;
+        leds = new DigitalOutput[Constants.speedIndicatorPins.length];
+        for(int i = 0; i < Constants.speedIndicatorPins.length; i++) {
+            leds[i] = new DigitalOutput(Constants.speedIndicatorPins[i]);
+        }
     }
 
     @Override

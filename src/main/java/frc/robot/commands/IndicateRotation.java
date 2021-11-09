@@ -13,6 +13,10 @@ public class IndicateRotation extends CommandBase{
     public IndicateRotation(RotationIndicator mIndicator, Move mMove) {
         indicator = mIndicator;
         move = mMove;
+        leds = new DigitalOutput[Constants.rotationIndicatorPins.length];
+        for(int i = 0; i < Constants.rotationIndicatorPins.length; i++) {
+            leds[i] = new DigitalOutput(Constants.rotationIndicatorPins[i]);
+        }
     }
 
     @Override
@@ -20,7 +24,7 @@ public class IndicateRotation extends CommandBase{
         update(move.rotMult);
     }
 
-    private void update(double rotMult) {
+    public void update(double rotMult) {
         resetLeds();
         for(int i = 0; i < Constants.rotSpeeds.length; i++) {
             if (rotMult == Constants.rotSpeeds[i]) {
